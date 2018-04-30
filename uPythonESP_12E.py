@@ -30,7 +30,7 @@ from umqtt.simple import MQTTClient
 #
 # Converting incoming analog values into usable Voltage readings.
 #
-def knobToDegrees (maxVolt=3.3V):
+def knobToDegrees (maxVolt=3.3):
     print('Converting 10-bit digital signals to corresponding analog voltage values(max 3.3V)')
     knobVal = 0
     knobVal = ADC(0).read()
