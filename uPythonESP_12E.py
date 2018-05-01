@@ -54,7 +54,7 @@ sta_if.connect(yourWifiSSID, yourWifiPassword)
 while not sta_if.isconnected():
   pass
 print('Network Configuration:',end='')
-print(ifconfig()) if sat_if.isconnected() else print('This network sucks! My code is right 4sure.
+print(sta_if.ifconfig()) if sat_if.isconnected() else print('This network sucks! My code is right 4sure.')
   
 #
 # connect ESP-12E to Adafruit IO using MQTT
@@ -80,7 +80,7 @@ while True:
   knobToDegrees()
   c.publish("icreate/feeds/kno_pot", str(knobToDegrees))  # publish temperature to adafruit IO feed
   c.publish("icreate/feeds/feed-micropythonFreeHeap", str(gc.mem_free()))  #publish num free bytes on the Heap
-  c.publish("icreate/feeds/knob_pot", str(knobToDegrees))
+  c.publish("icreate/feeds/knob_pot", str(knobVolt))
   time.sleep(5)  # number of seconds between each Publish
   
 c.disconnect()  
